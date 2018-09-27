@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+
+    </style>
+</head>
+
+<body class="shower list">
+
+    <section class="slide" id="cover">
+        <figure>
+            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
+        </figure>
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                color: white;
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                color: white;
+                font-style: italic;
+                font-size: 20px;
+            }
+
+            #cover p a {
+                color: white;
+            }
+
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Паттерн «Модуль»</h2>
+        <p>«Модуль» — это популярная реализация паттерна, инкапсулирующего приватную информацию, состояние и структуру,
+            используя замыкания. Это позволяет оборачивать публичные и приватные методы и переменные в модули, и
+            предотвращать их попадание в глобальный контекст, где они могут конфликтовать с интерфейсами других
+            разработчиков. Паттерн «модуль» возвращает только публичную часть API, оставляя всё остальное доступным
+            только внутри замыканий.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Варианты реализации</h2>
+        <p>В JavaScript существует несколько вариантов реализации модулей. К ним относятся:</p>
+        <ol>
+            <li>The Module pattern</li>
+            <li class="next">Object literal notation</li>
+            <li class="next">CommonJS modules</li>
+            <li class="next">AMD modules</li>
+            <li class="next">ECMAScript Harmony modules</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Object Literals</h2>
+        <p>Объект - это набор разделенных запятыми пар имя / значение, заключенных в фигурные скобки ({}).</p>
+        <img src="pictures/1.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>CommonJS modules</h2>
+        <p> главное воплощение этого стандарта — <a href="https://nodejs.org/api/modules.html" target="_blank">модульная
+                система Node.js</a>. Характеристики:</p>
+        <ol>
+            <li>Компактный синтаксис;</li>
+            <li>Предназначен для синхронной загрузки;</li>
+            <li>Преимущественно используется на стороне сервера.</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Asynchronous Module Definition (AMD)</h2>
+        <p>Наиболее популярной реализацией этого стандарта стал RequireJS. Характеристики:</p>
+        <ol>
+            <li>Синтаксис немного сложнее, что позволяет AMD работать без <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/eval"
+                    target="_blank">eval()</a> или этапа компиляции;</li>
+            <li>Предназначен для асинхронной загрузки;</li>
+            <li>Преимущественно используется на стороне клиента.</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>ECMAScript Harmony modules</h2>
+        <p>Целью модулей ECMAScript 6 (ES6) было создание формата, удобного как для пользователей CJS, так и для
+            пользователей AMD. В связи с этим они имеют такой же компактный синтаксис, как и модули CJS. Это дает два
+            основных преимущества:</p>
+        <ol>
+            <li>На этапе компиляции вы получите ошибки, если попытаетесь импортировать что-то, что не было
+                предварительно экспортировано;</li>
+            <li>Вы можете легко осуществить асинхронную загрузку модулей ES6.</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Экспорт</h2>
+        <img src="pictures/2.png" alt="">
+
+        <h2>Импорт</h2>
+        <img src="pictures/3.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>The Module pattern</h2>
+        <p>Исторически, паттерн «модуль» был разработан в 2003 году группой людей, в число которых входил Ричард
+            Корнфорд. Позднее этот паттерн был популяризован Дугласом Крокфордом в его лекциях, и открыт заново в блоге
+            YUI благодаря Эрику Мирагилиа.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Immediately-invoked function expression (IFFE)</h2>
+        <img src="pictures/5.png" alt="">
+        <p>Или</p>
+        <img src="pictures/6.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>jQuery</h2>
+        <img src="pictures/4.png" width='500' alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Приемущества</h2>
+        <p>С точки зрения JavaScript, на фоне полноценного ООП выглядит намного чище чем идея истинной инкапсуляции</p>
+        <p>Он поддерживает частные данные, поэтому в шаблоне модуля публичные части нашего кода могут касаться частных
+            частей, однако внешний мир не может коснуться частных частей этого класса</p>
+    </section>
+
+    <section class="slide">
+        <h2>Недостатки</h2>
+        <p>Недостатки шаблона модуля заключаются в том, что по мере того как мы обращаемся к публичным и частным членам
+            по-разному, когда мы хотим изменить видимость, нам действительно нужно внести изменения в каждое место, в
+            котором был использован элемент.</p>
+        <p>Мы не можем получить доступ к частным членам в методах, которые добавляются к объекту в более поздней точке</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shrink">Revealing Module (паттерн выявления модулей, он же — паттерн открытый модуль, он же —
+            паттерн раскрывающийся модуль)</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Revealing Module</h2>
+        <p>Модель раскрывающегося модуля возникла, когда Хейлманн был расстроен тем фактом, что ему приходится
+            повторять название основного объекта при вызове публичного метода извне</p>
+        <p>Revealing Module - это паттерн, в котором мы определяем все наши методы и переменные в
+            приватной области и возвращаем литерал объекта с ссылками на приватную функциональность, которую мы хотели
+            раскрыть для использования извне.</p>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/7.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Преимущества</h2>
+        <p>Паттерн позволяет сделать синтаксис наших скриптов более структурированным. Также мы получаем более
+            читабельное окончание нашего модуля, в котором содержатся ссылки на наши приватные методы и переменные</p>
+    </section>
+
+    <section class="slide">
+        <h2>Недостатки</h2>
+        <p>Если приватная функция модуля использует общедоступную функцию того же модуля, эту общедоступную функцию
+            нельзя переопределить извне. Даже если попытаться это сделать, приватная функция всё равно будет обращаться
+            к исходной приватной реализации общедоступной функции. То же самое касается и попытки изменения извне
+            общедоступной переменной, доступ к которой даёт API модуля.</p>
+    </section>
+
+    <section class="slide">
+        <p>Вышесказанное определяет, что объекты созданные с помощью паттерна Revealing Module, являются более
+            хрупкими, чем те, что созданы с помощью обычного модуля</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">The end</h2>
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.min.js"></script>
+    <!-- Copyright © 2018 Yours Truly, Famous Inc. -->
+
+</body>
+
+</html>
